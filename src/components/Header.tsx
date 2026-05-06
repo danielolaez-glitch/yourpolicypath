@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const lifeInsuranceLinks = [
   { href: '/guides/term-life-insurance-complete-guide', label: 'Term Life Insurance Guide' },
@@ -25,7 +26,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 text-xl font-bold text-indigo-600 hover:text-indigo-700 transition-colors">
-            <span className="text-2xl">🛡️</span>
+            <Image src="/logo.png" alt="Your Policy Path" width={32} height={32} className="rounded" />
             <span>Your Policy Path</span>
           </Link>
 

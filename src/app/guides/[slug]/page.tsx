@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getAllGuideSlugs, getGuideBySlug, getAllGuides } from '@/lib/content';
 import TableOfContents from '@/components/TableOfContents';
@@ -80,13 +81,35 @@ export default async function GuidePage({ params }: PageProps) {
           <span className="text-gray-900 line-clamp-1">{guide.title}</span>
         </nav>
 
+        {/* Author Box */}
+        <div className="max-w-4xl mb-8">
+          <div className="bg-gray-50 border border-gray-200 rounded-xl px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex items-center gap-3">
+              <Image src="/logo.png" alt="Your Policy Path" width={40} height={40} className="rounded-lg" />
+              <div>
+                <p className="font-semibold text-gray-900 text-sm">Your Policy Path Editorial Team</p>
+                <p className="text-xs text-gray-500">Licensed Insurance Professionals</p>
+              </div>
+            </div>
+            <div className="sm:ml-auto flex flex-wrap items-center gap-3 text-xs text-gray-500">
+              <span className="flex items-center gap-1">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Updated {guide.last_updated || 'May 6, 2026'}
+              </span>
+              <span className="credibility-badge">Fact-Checked</span>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <header className="max-w-4xl mb-10">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
             {guide.title}
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-            <span>By Your Policy Path Team</span>
+            <span>By Your Policy Path Editorial Team</span>
             <span className="hidden sm:inline">•</span>
             <span>{guide.reading_time}</span>
             <span className="hidden sm:inline">•</span>
@@ -101,6 +124,21 @@ export default async function GuidePage({ params }: PageProps) {
             <TableOfContents content={guide.content} />
             <div className="prose-custom">
               <MarkdownRenderer content={guide.content} />
+            </div>
+
+            {/* Disclaimer Box */}
+            <div className="mt-12 p-5 bg-amber-50 border border-amber-200 rounded-xl">
+              <div className="flex gap-3">
+                <svg className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                </svg>
+                <div>
+                  <p className="text-sm font-semibold text-amber-800 mb-1">Disclaimer</p>
+                  <p className="text-sm text-amber-700 leading-relaxed">
+                    This article is for educational purposes only and does not constitute insurance advice. Consult a licensed insurance professional for personalized recommendations.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

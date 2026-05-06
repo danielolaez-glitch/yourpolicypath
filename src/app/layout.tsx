@@ -18,10 +18,20 @@ export const metadata: Metadata = {
   description:
     'Free, unbiased insurance education guides covering life insurance, Medicare, health insurance, and annuities. Make smarter insurance decisions with expert resources.',
   metadataBase: new URL('https://yourpolicypath.com'),
+  icons: {
+    icon: [
+      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Your Policy Path',
+    title: 'Your Policy Path — Free Insurance Education Guides',
+    description:
+      'Free, unbiased insurance education guides covering life insurance, Medicare, health insurance, and annuities. Make smarter insurance decisions with expert resources.',
   },
 };
 

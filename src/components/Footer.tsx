@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const lifeLinks = [
   { href: '/guides/term-life-insurance-complete-guide', label: 'Term Life Insurance' },
@@ -91,11 +92,14 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-lg font-bold text-white">
-              <span>🛡️</span>
+              <Image src="/logo.png" alt="Your Policy Path" width={24} height={24} className="rounded" />
               <span>Your Policy Path</span>
             </div>
-            <p className="text-sm text-gray-500 text-center">
-              © 2026 Your Policy Path. All rights reserved. Educational content only — not insurance advice.
+            <p className="text-sm text-gray-400 text-center max-w-lg">
+              Your Policy Path is an independent insurance education resource. Educational content only — not insurance advice.
+            </p>
+            <p className="text-sm text-gray-500">
+              © 2026 Your Policy Path. All rights reserved.
             </p>
           </div>
         </div>
