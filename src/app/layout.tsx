@@ -8,6 +8,7 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -33,6 +34,10 @@ export const metadata: Metadata = {
     description:
       'Free, unbiased insurance education guides covering life insurance, Medicare, health insurance, and annuities. Make smarter insurance decisions with expert resources.',
   },
+  other: {
+    'theme-color': '#1E3A5F',
+    'msapplication-TileColor': '#1E3A5F',
+  },
 };
 
 export default function RootLayout({
@@ -57,7 +62,7 @@ export default function RootLayout({
         />
         {/* PIXEL GOES HERE */}
       </head>
-      <body className="font-sans bg-white text-gray-900 antialiased">
+      <body className="font-sans bg-white text-[#0F172A] antialiased">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

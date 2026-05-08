@@ -28,7 +28,7 @@ function parseInline(text: string): React.ReactNode[] {
       nodes.push(<strong key={key++}>{match[1]}</strong>);
     } else if (match[2] && match[3]) {
       nodes.push(
-        <a key={key++} href={match[3]} className="text-indigo-600 hover:text-indigo-800 underline" target={match[3].startsWith('http') ? '_blank' : undefined} rel={match[3].startsWith('http') ? 'noopener noreferrer' : undefined}>
+        <a key={key++} href={match[3]} className="text-[#1E3A5F] hover:text-[#D4A853] underline decoration-[#D4A853]/30 hover:decoration-[#D4A853]" target={match[3].startsWith('http') ? '_blank' : undefined} rel={match[3].startsWith('http') ? 'noopener noreferrer' : undefined}>
           {match[2]}
         </a>
       );
@@ -81,7 +81,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       const text = trimmed.replace(/^##\s+/, '');
       const id = slugify(text);
       elements.push(
-        <h2 key={key++} id={id} className="text-2xl font-bold text-gray-900 mt-12 mb-4 scroll-mt-24">
+        <h2 key={key++} id={id} className="text-2xl font-bold text-[#1E3A5F] mt-12 mb-4 scroll-mt-24">
           {parseInline(text)}
         </h2>
       );
@@ -93,7 +93,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
     if (trimmed.startsWith('### ')) {
       const text = trimmed.replace(/^###\s+/, '');
       elements.push(
-        <h3 key={key++} className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+        <h3 key={key++} className="text-xl font-semibold text-[#1E3A5F] mt-8 mb-3">
           {parseInline(text)}
         </h3>
       );
@@ -132,10 +132,10 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
       elements.push(
         <div key={key++} className="my-6 overflow-x-auto rounded-lg border border-gray-200">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-[#1E3A5F]">
               <tr>
                 {headerCells.map((cell, ci) => (
-                  <th key={ci} className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                  <th key={ci} className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                     {parseInline(cell)}
                   </th>
                 ))}
@@ -167,7 +167,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         i++;
       }
       elements.push(
-        <ul key={key++} className="my-4 pl-6 space-y-2 list-disc marker:text-indigo-400">
+        <ul key={key++} className="my-4 pl-6 space-y-2 list-disc marker:text-[#D4A853]">
           {items}
         </ul>
       );
@@ -183,7 +183,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         i++;
       }
       elements.push(
-        <ol key={key++} className="my-4 pl-6 space-y-2 list-decimal marker:text-indigo-500">
+        <ol key={key++} className="my-4 pl-6 space-y-2 list-decimal marker:text-[#D4A853]">
           {items}
         </ol>
       );
@@ -198,7 +198,7 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
         i++;
       }
       elements.push(
-        <blockquote key={key++} className="my-6 pl-6 border-l-4 border-indigo-300 bg-indigo-50/50 py-4 pr-4 rounded-r-lg text-gray-700 italic">
+        <blockquote key={key++} className="my-6 pl-6 border-l-4 border-[#D4A853] bg-[#D4A853]/5 py-4 pr-4 rounded-r-lg text-gray-700 italic">
           {quoteLines.map((ql, qi) => (
             <p key={qi}>{parseInline(ql)}</p>
           ))}
